@@ -91,7 +91,14 @@ if __name__ == '__main__':
     print('Read {} from {}'.format(formatDataSize(len(source)), args.infile))
 
     codeObject = frontend.process(source, args.infile)
-    result = backends.backends[args.format].process(codeObject)
+
+    backendMetadata = {
+        'Compyle version': _version,
+        'Python version': sys.version.replace('\n', ''),
+        'Original filename': args.infile
+    }
+
+    result = backends.backends[args.format].process(codeObject, backendMetadata)
 
     if args.hexdump:
         hexdump(result)
