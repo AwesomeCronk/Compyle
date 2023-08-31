@@ -1,4 +1,4 @@
-import argparse, sys
+import argparse, dis, sys
 
 import frontend
 import backends
@@ -83,7 +83,7 @@ def formatDataSize(size, rounding=2):
 
 if __name__ == '__main__':
     print('Compyle {} on Python {}'.format(_version, sys.version))
-    
+
     args = getArgs()
 
     with open(args.infile, 'r') as infile:
@@ -99,6 +99,9 @@ if __name__ == '__main__':
     }
 
     result = backends.backends[args.format].process(codeObject, backendMetadata)
+
+    if args.disassemble:
+        dis.dis(source)
 
     if args.hexdump:
         hexdump(result)

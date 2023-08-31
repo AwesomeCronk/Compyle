@@ -1,24 +1,24 @@
-from backends.c import constant, variable
+from ..dataTypes import *
 
 
-def BINARY_MATRIX_MULTIPLY(self):
+def BINARY_MATRIX_MULTIPLY(self, instr):
     raise NotImplementedError('Opcode BINARY_MATRIX_MULTIPLY not implemented')
 
-def INPLACE_MATRIX_MULTIPLY(self):
+def INPLACE_MATRIX_MULTIPLY(self, instr):
     raise NotImplementedError('Opcode INPLACE_MATRIX_MULTIPLY not implemented')
 
-def BINARY_POWER(self):
+def BINARY_POWER(self, instr):
     raise NotImplementedError('Opcode BINARY_POWER not implemented')
 
-def BINARY_MULTIPLY(self):
+def BINARY_MULTIPLY(self, instr):
     raise NotImplementedError('Opcode BINARY_MULTIPLY not implemented')
 
-def BINARY_MODULO(self):
+def BINARY_MODULO(self, instr):
     raise NotImplementedError('Opcode BINARY_MODULO not implemented')
 
-def BINARY_ADD(self):
-    a = self.simStack.pop()
+def BINARY_ADD(self, instr):
     b = self.simStack.pop()
+    a = self.simStack.pop()
 
     if isinstance(a, constant) and isinstance(b, constant):
         if a.knownType == b.knownType:
@@ -32,29 +32,29 @@ def BINARY_ADD(self):
 
     self.simStack.append(result)
 
-def BINARY_SUBTRACT(self):
+def BINARY_SUBTRACT(self, instr):
     raise NotImplementedError('Opcode BINARY_SUBTRACT not implemented')
 
-def BINARY_SUBSCR(self):
+def BINARY_SUBSCR(self, instr):
     raise NotImplementedError('Opcode BINARY_SUBSCR not implemented')
 
-def BINARY_FLOOR_DIVIDE(self):
+def BINARY_FLOOR_DIVIDE(self, instr):
     raise NotImplementedError('Opcode BINARY_FLOOR_DIVIDE not implemented')
 
-def BINARY_TRUE_DIVIDE(self):
+def BINARY_TRUE_DIVIDE(self, instr):
     raise NotImplementedError('Opcode BINARY_TRUE_DIVIDE not implemented')
 
-def BINARY_LSHIFT(self):
+def BINARY_LSHIFT(self, instr):
     raise NotImplementedError('Opcode BINARY_LSHIFT not implemented')
 
-def BINARY_RSHIFT(self):
+def BINARY_RSHIFT(self, instr):
     raise NotImplementedError('Opcode BINARY_RSHIFT not implemented')
 
-def BINARY_AND(self):
+def BINARY_AND(self, instr):
     raise NotImplementedError('Opcode BINARY_AND not implemented')
 
-def BINARY_XOR(self):
+def BINARY_XOR(self, instr):
     raise NotImplementedError('Opcode BINARY_XOR not implemented')
 
-def BINARY_OR(self):
+def BINARY_OR(self, instr):
     raise NotImplementedError('Opcode BINARY_OR not implemented')
